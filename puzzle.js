@@ -1,4 +1,4 @@
-        var correctCards = 0;
+   var correctCards = 0;
         jQuery( init );
         
         var imgPath = "/wp-content/uploads/sites/19/2024/04/";
@@ -41,7 +41,7 @@
           jQuery('#cardSlots').html( '' );
         
           // Create the pile of shuffled cards
-          popular.sort( function() { return Math.random() - .5 } );
+          popular.sort( function() { return Math.random() - 0.5; } );
         
           for ( var i=0; i<popularFoods.length; i++ ) {
             jQuery('<div class="'+popularFoods[i].image+' card'+i+' me-2"><img style="max-height:200px;" src="'+imgPath+'food-' + popularFoods[i].image + '.png"/><p>'+popularFoods[i].name+'</p></div>').data( 'string', popularFoods[i].name ).attr( 'id', 'card'+popularFoods[i].image ).appendTo( '#cardPile' ).draggable( {
@@ -53,7 +53,7 @@
           }
         
           // Create the card slots
-          for ( var i=0; i<countries.length; i++ ) {
+          for ( var j=0; j<countries.length; j++ ) {
             jQuery('<div class="me-2"><img style="max-height:200px;" src="'+imgPath+'countries-' + countries[i].image + '.png"/><p>'+countries[i].name+'</p><span class="error"><img src="'+imgPath+'x_mark_red.png" width="100%"/></span></div>').data( 'string', countries[i].image ).appendTo( '#cardSlots' ).droppable( {
               accept: '#cardPile div',
               hoverClass: 'hovered',
